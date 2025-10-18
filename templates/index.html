@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>AI Study Schedule Generator</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  <div class="container">
+    <h1>AI Study Schedule Generator</h1>
+    <p class="subtitle">Choose up to 6 subjects. Leave unused rows empty.</p>
+
+    {% if error %}
+      <div class="error">{{ error }}</div>
+    {% endif %}
+
+    <form action="/generate" method="post">
+      <div class="grid">
+        <!-- repeat rows 1..6 -->
+        {% for i in range(1,7) %}
+        <div class="row">
+          <input type="text" name="subject{{i}}" placeholder="Subject {{i}} (e.g., Python)">
+          <select name="difficulty{{i}}">
+            <option value="">Difficulty (default Medium)</option>
+            <option>Easy</option>
+            <option>Medium</option>
+            <option>Hard</option>
+          </select>
+        </div>
+        {% endfor %}
+      </div>
+
+      <div class="controls">
+        <label>Available study hours per day:</label>
+        <input type="number" name="hours_per_day" value="4" min="1" max="12">
+
+        <label>Start date (YYYY-MM-DD) — leave blank for today:</label>
+        <input type="date" name="start_date">
+
+        <label>Days to plan:</label>
+        <input type="number" name="days_left" value="7" min="1" max="60">
+
+        <button type="submit">Generate Schedule</button>
+      </div>
+    </form>
+
+    <footer>Made with ❤️ — AI Study Schedule Generator</footer>
+  </div>
+</body>
+</html>

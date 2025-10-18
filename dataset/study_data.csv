@@ -1,0 +1,76 @@
+Hours_of_Study,Difficulty_Level,Course,Recommended_Schedule
+1,Easy,Python,Revise syntax + 30 min coding daily.
+2,Medium,Python,Practice OOP + small projects (2 hrs).
+3,Hard,Python,Work on data analysis/automation projects (3 hrs).
+1,Easy,C,Practice basics: loops & arrays (1 hr).
+2,Medium,C,Work on pointers & structures (2 hrs).
+3,Hard,C,Implement file I/O + projects (3 hrs).
+1,Easy,C++,Revise OOP basics (1 hr).
+2,Medium,C++,Practice STL + problems (2 hrs).
+3,Hard,C++,Work on competitive programming + STL (3 hrs).
+1,Easy,HTML,Create simple pages (30-60 min).
+2,Medium,HTML,Build multi-page layout + forms (2 hrs).
+3,Hard,HTML,Responsive design + JS integration (3 hrs).
+1,Easy,CSS,Style pages + selectors (1 hr).
+2,Medium,CSS,Grid & Flexbox + mini project (2 hrs).
+3,Hard,CSS,Animations + portfolio (3 hrs).
+1,Easy,JavaScript,Small functions + DOM basics (1 hr).
+2,Medium,JavaScript,DOM + fetch + small apps (2 hrs).
+3,Hard,JavaScript,Single page app + projects (3 hrs).
+1,Easy,SQL,Selects and joins practice (1 hr).
+2,Medium,SQL,Normalization + subqueries (2 hrs).
+3,Hard,SQL,Stored procedures & optimization (3 hrs).
+1,Easy,DBMS,ER diagrams & keys (1 hr).
+2,Medium,DBMS,Normalization + transactions (2 hrs).
+3,Hard,DBMS,Integrate DB with apps (3 hrs).
+1,Easy,Data Structures,Arrays and LinkedLists (1 hr).
+2,Medium,Data Structures,Stacks + Trees practice (2 hrs).
+3,Hard,Data Structures,Graphs + recursion (3 hrs).
+1,Easy,Algorithms,Basic sorting & searching (1 hr).
+2,Medium,Algorithms,Greedy + divide & conquer (2 hrs).
+3,Hard,Algorithms,Dynamic programming sets (3 hrs).
+1,Easy,Machine Learning,Intro to regression (1 hr).
+2,Medium,Machine Learning,Train simple models (2 hrs).
+3,Hard,Machine Learning,Model tuning & pipelines (3 hrs).
+1,Easy,AI,Search basics & heuristics (1 hr).
+2,Medium,AI,Apply ML algorithms (2 hrs).
+3,Hard,AI,Case studies & projects (3 hrs).
+1,Easy,Deep Learning,CNN basics (1 hr).
+2,Medium,Deep Learning,CNN/RNN projects (2 hrs).
+3,Hard,Deep Learning,Train deep models (3 hrs).
+1,Easy,Data Analytics,Excel & Pandas basics (1 hr).
+2,Medium,Data Analytics,Visualization & EDA (2 hrs).
+3,Hard,Data Analytics,Dashboards & Power BI (3 hrs).
+1,Easy,Flask,Routes & simple apps (1 hr).
+2,Medium,Flask,Full CRUD apps (2 hrs).
+3,Hard,Flask,Auth & deployment (3 hrs).
+1,Easy,Django,Templates & forms (1 hr).
+2,Medium,Django,CRUD & models (2 hrs).
+3,Hard,Django,REST API + deployment (3 hrs).
+1,Easy,Cloud,Cloud basics AWS/GCP (1 hr).
+2,Medium,Cloud,Services & hands-on (2 hrs).
+3,Hard,Cloud,Deploying production apps (3 hrs).
+1,Easy,Git,Basic commands & GitHub (1 hr).
+2,Medium,Git,Branching and merging (2 hrs).
+3,Hard,Git,CI/CD integration (3 hrs).
+1,Easy,Networking,OSI model & IP basics (1 hr).
+2,Medium,Networking,Routing & subnetting (2 hrs).
+3,Hard,Networking,Packet analysis & labs (3 hrs).
+1,Easy,OS,Basics process & memory (1 hr).
+2,Medium,OS,Scheduling & memory mgmt (2 hrs).
+3,Hard,OS,Kernel internals & lab problems (3 hrs).
+1,Easy,Security,Intro to cybersecurity tools (1 hr).
+2,Medium,Security,Scanning & basics (2 hrs).
+3,Hard,Security,Pen-testing labs (3 hrs).
+1,Easy,NLP,Basics tokenization (1 hr).
+2,Medium,NLP,Text preprocessing & features (2 hrs).
+3,Hard,NLP,Transformer models & projects (3 hrs).
+1,Easy,Computer Vision,Basics OpenCV (1 hr).
+2,Medium,Computer Vision,CNN practice (2 hrs).
+3,Hard,Computer Vision,Object detection projects (3 hrs).
+1,Easy,DevOps,Docker basics (1 hr).
+2,Medium,DevOps,CI/CD & pipeline (2 hrs).
+3,Hard,DevOps,Kubernetes & orchestration (3 hrs).
+1,Easy,Ethical Hacking,Intro tools (1 hr).
+2,Medium,Ethical Hacking,Scanning & exploits (2 hrs).
+3,Hard,Ethical Hacking,Complex lab simulation (3 hrs)

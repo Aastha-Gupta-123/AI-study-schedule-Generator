@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Your Study Plan</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  <div class="container">
+    <h1>Your AI-Generated Study Plan</h1>
+    <p class="subtitle">Total daily study hours: {{ hours_per_day }}</p>
+
+    {% for day in plan %}
+      <div class="day-card">
+        <div class="day-header">{{ day.day }} — {{ day.date }}</div>
+        <table class="slot-table">
+          <tr><th>Time</th><th>Subject</th><th>Hours</th><th>Difficulty</th><th>Note</th></tr>
+          {% for s in day.slots %}
+          <tr>
+            <td>{{ s.time }}</td>
+            <td>{{ s.subject }}</td>
+            <td>{{ s.hours }}</td>
+            <td>{{ s.difficulty }}</td>
+            <td>{{ s.note }}</td>
+          </tr>
+          {% endfor %}
+        </table>
+      </div>
+    {% endfor %}
+
+    <a class="back" href="/">← Back</a>
+    <footer>Good luck! Study consistently 💪</footer>
+  </div>
+</body>
+</html>
