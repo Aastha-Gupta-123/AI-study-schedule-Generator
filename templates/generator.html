@@ -1,0 +1,107 @@
+{% extends "base.html" %}
+
+{% block title %}Schedule Generator - AI Study Schedule Generator{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="page-header">
+        <h1><i class="fas fa-calendar-alt"></i> Study Schedule Generator</h1>
+        <p class="subtitle">Enter up to 6 subjects with their difficulty levels. Leave unused rows empty.</p>
+    </div>
+
+    {% if error %}
+    <div class="alert alert-error">
+        <i class="fas fa-exclamation-circle"></i> {{ error }}
+    </div>
+    {% endif %}
+
+    <form action="{{ url_for('generate') }}" method="post" class="generator-form">
+        <div class="form-section">
+            <h2 class="form-section-title">
+                <i class="fas fa-book"></i> Subjects & Difficulty
+            </h2>
+            <div class="subjects-grid">
+                {% for i in range(1,7) %}
+                <div class="subject-row">
+                    <div class="input-group">
+                        <label for="subject{{i}}">
+                            <i class="fas fa-book-open"></i> Subject {{i}}
+                        </label>
+                        <input type="text" 
+                               id="subject{{i}}" 
+                               name="subject{{i}}" 
+                               placeholder="e.g., Python, Mathematics, Physics"
+                               class="form-input">
+                    </div>
+                    <div class="input-group">
+                        <label for="difficulty{{i}}">
+                            <i class="fas fa-signal"></i> Difficulty
+                        </label>
+                        <select id="difficulty{{i}}" name="difficulty{{i}}" class="form-select">
+                            <option value="">Select (default: Medium)</option>
+                            <option value="Easy">Easy</option>
+                            <option value="Medium">Medium</option>
+                            <option value="Hard">Hard</option>
+                        </select>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+
+        <div class="form-section">
+            <h2 class="form-section-title">
+                <i class="fas fa-cog"></i> Schedule Settings
+            </h2>
+            <div class="settings-grid">
+                <div class="input-group">
+                    <label for="hours_per_day">
+                        <i class="fas fa-clock"></i> Available Study Hours Per Day
+                    </label>
+                    <input type="number" 
+                           id="hours_per_day" 
+                           name="hours_per_day" 
+                           value="4" 
+                           min="1" 
+                           max="12" 
+                           class="form-input">
+                    <small>Enter the number of hours you can dedicate to studying each day</small>
+                </div>
+                <div class="input-group">
+                    <label for="start_date">
+                        <i class="fas fa-calendar"></i> Start Date
+                    </label>
+                    <input type="date" 
+                           id="start_date" 
+                           name="start_date" 
+                           class="form-input">
+                    <small>Leave blank to start from today</small>
+                </div>
+                <div class="input-group">
+                    <label for="days_left">
+                        <i class="fas fa-calendar-check"></i> Days to Plan
+                    </label>
+                    <input type="number" 
+                           id="days_left" 
+                           name="days_left" 
+                           value="7" 
+                           min="1" 
+                           max="60" 
+                           class="form-input">
+                    <small>Number of days to generate schedule for</small>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-actions">
+            <button type="submit" class="btn btn-primary btn-large">
+                <i class="fas fa-magic"></i> Generate Schedule
+            </button>
+            <button type="reset" class="btn btn-secondary">
+                <i class="fas fa-redo"></i> Reset Form
+            </button>
+        </div>
+    </form>
+</div>
+{% endblock %}
+

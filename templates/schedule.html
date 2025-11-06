@@ -1,35 +1,79 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8" />
-  <title>Your Study Plan</title>
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-</head>
-<body>
-  <div class="container">
-    <h1>Your AI-Generated Study Plan</h1>
-    <p class="subtitle">Total daily study hours: {{ hours_per_day }}</p>
+{% extends "base.html" %}
 
-    {% for day in plan %}
-      <div class="day-card">
-        <div class="day-header">{{ day.day }} — {{ day.date }}</div>
-        <table class="slot-table">
-          <tr><th>Time</th><th>Subject</th><th>Hours</th><th>Difficulty</th><th>Note</th></tr>
-          {% for s in day.slots %}
-          <tr>
-            <td>{{ s.time }}</td>
-            <td>{{ s.subject }}</td>
-            <td>{{ s.hours }}</td>
-            <td>{{ s.difficulty }}</td>
-            <td>{{ s.note }}</td>
-          </tr>
-          {% endfor %}
-        </table>
-      </div>
-    {% endfor %}
+{% block title %}Your Study Plan - AI Study Schedule Generator{% endblock %}
 
-    <a class="back" href="/">← Back</a>
-    <footer>Good luck! Study consistently 💪</footer>
-  </div>
-</body>
-</html>
+{% block content %}
+<div class="container">
+    <div class="page-header">
+        <h1><i class="fas fa-list-check"></i> Your AI-Generated Study Plan</h1>
+        <p class="subtitle">Total daily study hours: <strong>{{ hours_per_day }} hours</strong></p>
+    </div>
+
+    <div class="schedule-container">
+        {% for day in plan %}
+        <div class="day-card">
+            <div class="day-header">
+                <div class="day-info">
+                    <h3 class="day-name">{{ day.day }}</h3>
+                    <span class="day-date">{{ day.date }}</span>
+                </div>
+                <div class="day-stats">
+                    <span class="stat-badge">
+                        <i class="fas fa-clock"></i> {{ day.slots|length }} Sessions
+                    </span>
+                </div>
+            </div>
+            <div class="schedule-table-wrapper">
+                <table class="schedule-table">
+                    <thead>
+                        <tr>
+                            <th><i class="fas fa-sun"></i> Time</th>
+                            <th><i class="fas fa-book"></i> Subject</th>
+                            <th><i class="fas fa-hourglass-half"></i> Hours</th>
+                            <th><i class="fas fa-signal"></i> Difficulty</th>
+                            <th><i class="fas fa-lightbulb"></i> Note</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for s in day.slots %}
+                        <tr>
+                            <td>
+                                <span class="time-badge time-{{ s.time.lower() }}">
+                                    {{ s.time }}
+                                </span>
+                            </td>
+                            <td><strong>{{ s.subject }}</strong></td>
+                            <td>
+                                <span class="hours-badge">{{ s.hours }}h</span>
+                            </td>
+                            <td>
+                                <span class="difficulty-badge difficulty-{{ s.difficulty.lower() }}">
+                                    {{ s.difficulty }}
+                                </span>
+                            </td>
+                            <td class="note-cell">
+                                {% if s.note %}
+                                    <i class="fas fa-info-circle"></i> {{ s.note }}
+                                {% else %}
+                                    <span class="text-muted">-</span>
+                                {% endif %}
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <div class="action-buttons">
+        <a href="{{ url_for('generator') }}" class="btn btn-primary">
+            <i class="fas fa-arrow-left"></i> Generate New Schedule
+        </a>
+        <a href="{{ url_for('home') }}" class="btn btn-secondary">
+            <i class="fas fa-home"></i> Back to Home
+        </a>
+    </div>
+</div>
+{% endblock %}

@@ -1,49 +1,78 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>AI Study Schedule Generator</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: #f8f9fa;
-            text-align: center;
-            margin: 50px;
-        }
-        form {
-            margin-top: 40px;
-        }
-        textarea {
-            width: 400px;
-            height: 100px;
-            padding: 10px;
-            border-radius: 10px;
-            border: 1px solid #ccc;
-        }
-        button {
-            background: #007bff;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 10px;
-            cursor: pointer;
-        }
-        button:hover {
-            background: #0056b3;
-        }
-        h2 {
-            color: #333;
-        }
-    </style>
-</head>
-<body>
-    <h1>🎯 AI Study Schedule Generator</h1>
-    <form action="/predict" method="post">
-        <textarea name="review" placeholder="Enter your text..."></textarea><br><br>
-        <button type="submit">Generate</button>
-    </form>
+{% extends "base.html" %}
 
-    {% if prediction %}
-        <h2>Result: {{ prediction }}</h2>
-    {% endif %}
-</body>
-</html>
+{% block title %}Sentiment Analysis - AI Study Schedule Generator{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="page-header">
+        <h1><i class="fas fa-heart"></i> Study Sentiment Analysis</h1>
+        <p class="subtitle">Analyze the sentiment of your study notes, feedback, or learning experiences</p>
+    </div>
+
+    <div class="sentiment-container">
+        <div class="sentiment-form-card">
+            <form action="{{ url_for('predict_sentiment') }}" method="post" class="sentiment-form">
+                <div class="input-group full-width">
+                    <label for="review">
+                        <i class="fas fa-edit"></i> Enter Your Text
+                    </label>
+                    <textarea 
+                        id="review" 
+                        name="review" 
+                        rows="6" 
+                        placeholder="Enter your study notes, feedback, or any text you want to analyze. For example: 'I really enjoyed learning Python today. The concepts were clear and easy to understand.'"
+                        class="form-textarea"
+                        required>{{ request.form.get('review', '') }}</textarea>
+                    <small>Analyze the sentiment of your study-related text (positive, negative, or neutral)</small>
+                </div>
+                
+                <button type="submit" class="btn btn-primary btn-large">
+                    <i class="fas fa-brain"></i> Analyze Sentiment
+                </button>
+            </form>
+        </div>
+
+        {% if prediction %}
+        <div class="sentiment-result-card">
+            <h2 class="result-title">
+                <i class="fas fa-chart-pie"></i> Analysis Result
+            </h2>
+            <div class="sentiment-result">
+                <div class="sentiment-icon sentiment-{{ prediction.lower() }}">
+                    {% if prediction.lower() == 'positive' %}
+                        <i class="fas fa-smile"></i>
+                    {% elif prediction.lower() == 'negative' %}
+                        <i class="fas fa-frown"></i>
+                    {% else %}
+                        <i class="fas fa-meh"></i>
+                    {% endif %}
+                </div>
+                <div class="sentiment-text">
+                    <h3 class="sentiment-label sentiment-{{ prediction.lower() }}">
+                        {{ prediction }}
+                    </h3>
+                    <p class="sentiment-description">
+                        {% if prediction.lower() == 'positive' %}
+                            Great! Your text shows a positive sentiment. Keep up the good work! 🎉
+                        {% elif prediction.lower() == 'negative' %}
+                            Your text shows a negative sentiment. Consider adjusting your study approach or schedule. 💪
+                        {% else %}
+                            Your text shows a neutral sentiment. Keep track of your progress! 📊
+                        {% endif %}
+                    </p>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+
+        <div class="info-card">
+            <h3><i class="fas fa-info-circle"></i> How It Works</h3>
+            <ul class="info-list">
+                <li><i class="fas fa-check"></i> Enter any text related to your study experience</li>
+                <li><i class="fas fa-check"></i> Our AI analyzes the sentiment (positive, negative, or neutral)</li>
+                <li><i class="fas fa-check"></i> Use insights to improve your study schedule and approach</li>
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock %}

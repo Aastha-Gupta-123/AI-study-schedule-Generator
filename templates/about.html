@@ -1,0 +1,155 @@
+{% extends "base.html" %}
+
+{% block title %}About - AI Study Schedule Generator{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="page-header">
+        <h1><i class="fas fa-info-circle"></i> About AI Study Schedule Generator</h1>
+        <p class="subtitle">Empowering students with AI-driven study planning</p>
+    </div>
+
+    <div class="about-content">
+        <section class="about-section">
+            <h2><i class="fas fa-lightbulb"></i> What We Do</h2>
+            <p>
+                AI Study Schedule Generator is an intelligent platform that uses machine learning algorithms 
+                to create personalized and optimized study schedules. Our system analyzes your subjects, their 
+                difficulty levels, and your available study time to generate the most efficient learning plan.
+            </p>
+        </section>
+
+        <section class="about-section">
+            <h2><i class="fas fa-cogs"></i> How It Works</h2>
+            <div class="process-list">
+                <div class="process-item">
+                    <div class="process-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <div class="process-content">
+                        <h3>Data-Driven Approach</h3>
+                        <p>Our AI model is trained on extensive study data to understand optimal time allocation patterns.</p>
+                    </div>
+                </div>
+                <div class="process-item">
+                    <div class="process-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <div class="process-content">
+                        <h3>Machine Learning</h3>
+                        <p>Random Forest algorithms predict the optimal study hours for each subject based on difficulty.</p>
+                    </div>
+                </div>
+                <div class="process-item">
+                    <div class="process-icon">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                    <div class="process-content">
+                        <h3>Smart Scheduling</h3>
+                        <p>Intelligent time slot distribution ensures balanced learning across all subjects.</p>
+                    </div>
+                </div>
+                <div class="process-item">
+                    <div class="process-icon">
+                        <i class="fas fa-chart-bar"></i>
+                    </div>
+                    <div class="process-content">
+                        <h3>Sentiment Analysis</h3>
+                        <p>Analyze your study feedback to understand patterns and improve your learning experience.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="about-section">
+            <h2><i class="fas fa-star"></i> Key Features</h2>
+            <div class="features-list">
+                <div class="feature-item">
+                    <i class="fas fa-check-circle"></i>
+                    <span>AI-powered schedule generation</span>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-check-circle"></i>
+                    <span>Support for multiple subjects (up to 6)</span>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-check-circle"></i>
+                    <span>Difficulty-based time allocation</span>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-check-circle"></i>
+                    <span>Customizable study hours and duration</span>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-check-circle"></i>
+                    <span>Time slot optimization (Morning/Afternoon/Evening)</span>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-check-circle"></i>
+                    <span>Sentiment analysis for study feedback</span>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-check-circle"></i>
+                    <span>User-friendly interface</span>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-check-circle"></i>
+                    <span>Responsive design for all devices</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="about-section">
+            <h2><i class="fas fa-code"></i> Technology Stack</h2>
+            <div class="tech-stack">
+                <div class="tech-item">
+                    <i class="fab fa-python"></i>
+                    <span>Python</span>
+                </div>
+                <div class="tech-item">
+                    <i class="fas fa-flask"></i>
+                    <span>Flask</span>
+                </div>
+                <div class="tech-item">
+                    <i class="fas fa-brain"></i>
+                    <span>Scikit-learn</span>
+                </div>
+                <div class="tech-item">
+                    <i class="fas fa-chart-line"></i>
+                    <span>Random Forest</span>
+                </div>
+                <div class="tech-item">
+                    <i class="fab fa-html5"></i>
+                    <span>HTML5</span>
+                </div>
+                <div class="tech-item">
+                    <i class="fab fa-css3-alt"></i>
+                    <span>CSS3</span>
+                </div>
+                <div class="tech-item">
+                    <i class="fab fa-js"></i>
+                    <span>JavaScript</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="about-section">
+            <h2><i class="fas fa-graduation-cap"></i> For Students, By Students</h2>
+            <p>
+                This project was created to help students optimize their study time and achieve better academic 
+                results. We believe that with the right planning and AI assistance, anyone can improve their 
+                learning efficiency and reach their educational goals.
+            </p>
+        </section>
+
+        <div class="cta-section">
+            <h2>Ready to Get Started?</h2>
+            <p>Create your personalized study schedule now!</p>
+            <a href="{{ url_for('generator') }}" class="btn btn-primary btn-large">
+                <i class="fas fa-rocket"></i> Generate Your Schedule
+            </a>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
